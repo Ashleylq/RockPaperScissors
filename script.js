@@ -18,7 +18,6 @@ const resultMessage = document.createElement("div")
 const scoreMessage = document.createElement("div")
 function Playround(){
     let computerChoice = Computerchoice();
-    conso
     choiceMessage.textContent = `Your choice: ${playerChoice}
         Computer's choice: ${computerChoice}`;
     if ((playerChoice === "rock" && computerChoice === "scissors")||
