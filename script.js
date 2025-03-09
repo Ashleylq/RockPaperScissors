@@ -11,23 +11,13 @@ function Computerchoice(){
     }
 }
 
-function Playerchoice(){
-    let randomChoice = prompt("What do you choose?");
-    let choice = randomChoice.toLowerCase();
-    if (choice === "rock" || choice === "paper" || choice === "scissors"){
-        return choice;
-    }
-    else{
-        alert("Invalid input");
-        Playerchoice();
-    }
-}
+let playerChoice = "";
 
 let playerScore = 0;
- let computerScore = 0;
+let computerScore = 0;
+
  function Playround(){
      let computerChoice = Computerchoice();
-     let playerChoice = Playerchoice();
      console.log(`Your choice: ${playerChoice}
          Computer's choice: ${computerChoice}`);
      if ((playerChoice === "rock" && computerChoice === "scissors")||
@@ -49,10 +39,26 @@ let playerScore = 0;
      Computer's score: ${computerScore}`);
  }
  
- function Playgame(){
-     playerScore = 0;
-     computerScore = 0;
-     for (let i = 0; i < 5; i++){
-         Playround();
-     }
- }
+ const container = document.querySelector(".container");
+
+ const rockButton = document.createElement("button");
+ rockButton.textContent = "rock"
+ rockButton.addEventListener("click", () => {
+    playerChoice = "rock";
+    Playround()})
+ container.appendChild("rockButton");
+
+ const paperButton = document.createElement("button");
+ paperButton.textContent = "paper"
+ paperButton.addEventListener("click", () => {
+    playerChoice = "paper";
+    Playround()})
+ container.appendChild("paperButton")
+
+ const scissorsButton = document.createElement("button");
+ scissorsButton.textContent = "scissors"
+ scissorsButton.addEventListener("click", () => {
+    playerChoice = "scissors"
+    Playround()
+ })
+ container.appendChild("scissorsButton")
